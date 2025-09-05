@@ -11,8 +11,8 @@ function signin() {
 		mail: userMail,
 		password: userPassword
 	};
-	if (userMail || userPassword == '') {
-		document.querySelector('.result2').innerHTML = `User Created Successfully`;   
+	if (!userMail || !userPassword) {
+		document.querySelector('.result2').innerHTML = `all field is required`;   
 	} else {
 		document.querySelector('.result2').innerHTML = `<p style="color: green;"> User Created Successfully </p>`;  
 		console.log('success') 
