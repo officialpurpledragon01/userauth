@@ -1,4 +1,4 @@
-	let authUser = {
+let authUser = {
       mail: 'admin@gmail.com',
       password: 'admin'
   }
@@ -7,12 +7,12 @@
 function signin() {
 	const userMail = document.querySelector('.signinEmail').value;
 	const userPassword = document.querySelector('.signinPassword').value;
-let newUser = {
+  let newUser = {
 		mail: userMail,
 		password: userPassword
 	};
 	if (userMail || userPassword == '') {
-		document.querySelector('.result2').innerHTML = `all field requires input`;   
+		document.querySelector('.result2').innerHTML = `User Created Successfully`;   
 	} else {
 		document.querySelector('.result2').innerHTML = `<p style="color: green;"> User Created Successfully </p>`;  
 		console.log('success') 
