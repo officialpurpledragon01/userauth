@@ -2,23 +2,27 @@ let authUser = {
       mail: 'admin@gmail.com',
       password: 'admin'
   }
-	
-	//still working on it
+
+  //still working on the signin
 function signin() {
 	const userMail = document.querySelector('.signinEmail').value;
 	const userPassword = document.querySelector('.signinPassword').value;
-let newUser = {
+
+  let newUser = {
 		mail: userMail,
 		password: userPassword
-	};
-	if (userMail || userPassword == '') {
-		document.querySelector('.result2').innerHTML = `all field requires input`;   
+	}
+
+	if (userMail === '' || userPassword === '') {
+		document.querySelector('.result2').innerHTML = `all field is required`;
+
 	} else {
+    authUser = newUser;
 		document.querySelector('.result2').innerHTML = `<p style="color: green;"> User Created Successfully </p>`;  
 		console.log('success') 
-	}
-	authUser = newUser;
-	}
+    return clearInput(); 
+	}  
+}
 
 function authenticate() {   
   const userMail = document.querySelector('.loginEmail').value;
@@ -34,5 +38,12 @@ function authenticate() {
         console.log(`this is for demo only (email: ${authUser.mail}  ,password: ${authUser.password}`);
         document.querySelector('.result1').innerHTML = `incorrect input check console`;   
     }
-  } 
+    return clearInput(); 
+  }
+}
+function clearInput() {
+  document.querySelector('.loginEmail').value = '';
+  document.querySelector('.loginPassword').value = '';
+  document.querySelector('.signinEmail').value = '';
+  document.querySelector('.signinPassword').value = '';
 }
