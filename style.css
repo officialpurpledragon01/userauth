@@ -61,16 +61,18 @@ body{
     gap: 20px;
     align-items: center;
     padding: 20px;
+    
 }
 span{
     font-size: 16px;    
     color: rgb(255, 47, 106);
     font-style: italic;
     margin: 0;
+    padding: 0;
 }
 input{
     height: 60px;
-    padding-left: 10px;
+    padding-left: 15px;
     outline: none;
     width: 100%;
     border-radius: 10px;

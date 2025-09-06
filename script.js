@@ -30,16 +30,12 @@ function authenticate() {
 
   if (!userMail || !userPassword) {
       document.querySelector('.result1').innerText = `all field is required`;
-      document.querySelector('.result1').innerText = `all field is required`;
   } else {
     if (userMail === authUser.mail && userPassword === authUser.password) {
         document.querySelector('.result1').innerHTML = `<p style="color: green;">User Logged In Successfully</p>`;
         console.log(`Details Mapped Correct ${JSON.stringify(authUser)} = User Input Mail:${userMail}, User Input Password:${userPassword}`);
-        document.querySelector('.result1').innerHTML = `<p style="color: green;">User Logged In Successfully</p>`;
-        console.log(`Details Mapped Correct ${JSON.stringify(authUser)} = User Input Mail:${userMail}, User Input Password:${userPassword}`);
     } else {
         console.log(`this is for demo only (email: ${authUser.mail}  ,password: ${authUser.password}`);
-        document.querySelector('.result1').innerHTML = `incorrect input check console`;   
         document.querySelector('.result1').innerHTML = `incorrect input check console`;   
     }
     return clearInput(); 
