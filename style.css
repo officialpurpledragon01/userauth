@@ -4,7 +4,7 @@ body{
     align-content: center;
 
     background-color: bisque;
-    font-family: Arial;
+    font-family: Roboto, Tahoma;
     padding: 10px;
 }
 .container{
@@ -20,7 +20,6 @@ body{
     flex-wrap: wrap;
 }
 .container .in{
-    font-size: 20px;
     border-radius: 10px;
     color: black;
     border: 3px solid white;
@@ -31,8 +30,30 @@ body{
 .log{
     background-color: rgb(171, 177, 159);
 }
+.log h2{
+    color: transparent; 
+    -webkit-text-stroke: 1px white;
+    font-weight: bolder;
+    font-size: 34px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+.log button{
+    background-color: #2cb1bc;
+}
+.log button:hover {
+    background-color: #238a94; 
+    color: #fff;
+}
 .sign{
     background-color: rgb(173, 222, 222);
+}
+.sign h2{
+    color:  rgb(40, 184, 136);
+    font-size: 32px;
+    -webkit-text-stroke: 0.75px #fff;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
 }
 .form{
     display: flex;
