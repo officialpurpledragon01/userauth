@@ -36,8 +36,8 @@ body{
     box-shadow: 7px 7px 6px rgba(26, 27, 27, 0.648);
 
     margin: 10px;
-    padding: 20px;
-    width: 400px;
+    padding: 30px;
+    min-width: 400px;
 
     flex: 1 1 auto;
 }
@@ -75,7 +75,6 @@ body{
     gap: 20px;
     align-items: center;
     padding: 20px;
-    
 }
 span{
     font-size: 16px;    
@@ -97,7 +96,6 @@ input{
 input:hover{
     border: 2px solid rgb(31, 224, 105);
 }
-
 button{
     width: 150px;
     font-size: 16px;
