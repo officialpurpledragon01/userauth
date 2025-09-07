@@ -129,3 +129,16 @@ button:hover{
     padding: 22px 0;
     background-color: rgb(40, 184, 136);
 }
+.footer-container{
+    width: 100%;
+    /* background-color: rgba(119, 35, 168, 0.313); */
+    margin-top: 30px;
+}
+footer{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    padding: 10px 0;
+    font-weight: 500;
+}
