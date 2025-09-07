@@ -1,17 +1,22 @@
-let authUser = [
+const authUser = [
+  {mail: 'test@gmail.com', password: 'test'},
   {mail: 'admin@gmail.com', password: 'admin'}
 ]
 
 // still working on the signin
 function signin() {
-  const userMail = document.querySelector('.signinEmail').value;
-  const userPassword = document.querySelector('.signinPassword').value;
-  let newUser = {mail: userMail, password: userPassword};
+  const userMail = document.querySelector('.signinEmail').value.trim();
+  const userPassword = document.querySelector('.signinPassword').value.trim();
+  const newUser = {mail: userMail, password: userPassword};
+  const mailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+/;
 
-  if (userMail == '' || userPassword === '') {
+  if (userMail === '' || userPassword === '') {
     signinResponse(false);
     console.error('all field is required');
     return;
+  } if (!mailpattern.test(userMail)) {
+    signinResponse('void')
+    console.error('testing mail');
   } else {
     authUser.push(newUser);
     signinResponse(true);
@@ -33,13 +38,15 @@ function authenticate() {
   let userstatus = false;
   for (let i = 0; i < authUser.length; i++) {
     if (userMail === authUser[i].mail && userPassword === authUser[i].password) {
-      console.log(`Details Mapped Correct ${JSON.stringify(authUser[i])} = User Input Mail:${userMail}, User Input Password:${userPassword}`);
+      console.log(
+        `Input Match Found ✓
+[Matched Email : ${JSON.stringify(authUser[i].mail)} => User Input Mail:${userMail}] 
+[Matched Password : ${JSON.stringify(authUser[i].password)} => User Input Password:${userPassword}]`);
       userstatus = true;
       loginResponse(userstatus);
       break;
-    }else {
+    } else {
     loginResponse('void');
-    console.log(`this is for demo only (email: ${authUser[i].mail}  ,password: ${authUser[i].password})`);
     }
   } 
   clearInput();
@@ -51,11 +58,14 @@ function clearInput() {
   document.querySelector('.signinEmail').value = '';
   document.querySelector('.signinPassword').value = '';
 }
+
 function signinResponse(param) {
   let signin = document.querySelector('.result2');
   let login = document.querySelector('.result1');
   if (param == false) {
     signin.innerHTML = `<p style="color: red;"> all field required </p>`; 
+  } else if (param == 'void') {
+    signin.innerHTML = `<p style="color: grey;"> invalid email format </p>`; 
   } else {
     signin.innerHTML = `<p style="color: green;"> User Created Successfully </p>`; 
   }    
