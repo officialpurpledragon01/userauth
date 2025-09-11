@@ -1,0 +1,10 @@
+@media screen and (min-width:450px) { /*for small screen */
+  .w-icon{
+    display: none;
+  }
+}
+@media screen and (max-width:451px) { /* for big screen */
+  .note{
+    display: none;
+  }
+}

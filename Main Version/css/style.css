@@ -7,9 +7,6 @@ body{
 
     background-color: bisque;
     font-family: Roboto, Tahoma, Arial, Calibri;
-
-    padding: 0;
-    margin: 0;
 }
 .header{
     font-size: 45px;
@@ -73,11 +70,11 @@ body{
     background-color: #238a94; 
     color: #fff;
 }
-.signin {
+.signup {
     background-color: rgb(173, 222, 222);
     box-shadow: -4px 4px 10px rgba(46, 74, 1, 0.393);
 }
-.signin h2{
+.signup h2{
     color:  rgb(40, 184, 136);
     -webkit-text-stroke: 0.6px #ffffffd4;
 }
@@ -88,7 +85,7 @@ body{
     align-items: center;
     margin-top: 0;
 }
-span p{
+#jsResponse p{
     font-size: 16px;  
     font-family: 'Times New Roman', Times, serif;  
     font-style: italic;
@@ -106,7 +103,7 @@ input{
     font-size: 17px;
     transition: 0.5s;
 }
-.signin input:hover{
+.signup input:hover{
     border-color: rgb(31, 224, 105);
 }
 .login input:hover{
@@ -129,10 +126,72 @@ button:hover{
     padding: 22px 0;
     background-color: rgb(40, 184, 136);
 }
+.note{
+    position: fixed;
+    transform: rotate(-90deg);
+    right: -30px;
+    bottom: 35%;
+    background: white;
+    height: 7%;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.note p{
+    margin: 0;
+    padding: 4px 6px;
+}
+.note a{
+    text-decoration: none;
+    color: rgb(66, 6, 122);
+}
+
+.w-icon{
+    position: fixed;
+
+    right: 2px;
+    bottom: 12%;
+    background: green;
+    color: #fff;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; */
+
+    padding: 5px;
+    width: 40px; 
+    height: 40px; 
+
+    border-radius: 100%;
+}
+.w-icon a{
+    text-decoration: none;
+    color: #fff;
+}
+.w-icon img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+
+    z-index: 10;
+}
+.w-icon div{
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    transform: rotate(1deg);
+    bottom: 3px;
+    left: 3px;
+    background-color: green;
+}
+
 .footer-container{
     width: 100%;
     /* background-color: rgba(119, 35, 168, 0.313); */
     margin-top: 30px;
+    margin-bottom: 10px;
 }
 footer{
     font-family: 'Courier New', Courier, monospace;

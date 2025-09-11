@@ -4,28 +4,28 @@ const authUser = [
 ]
 
 // still working on the signin
-function signin() {
-  const userMail = document.querySelector('.signinEmail').value.trim();
-  const userPassword = document.querySelector('.signinPassword').value.trim();
+function signup() {
+  const userMail = document.querySelector('.signupEmail').value.trim();
+  const userPassword = document.querySelector('.signupPassword').value.trim();
   const newUser = {mail: userMail, password: userPassword};
   const mailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+/;
 
   if (userMail === '' || userPassword === '') {
-    signinResponse(false);
+    signupResponse(false);
     console.error('all field is required');
     return;
   } if (!mailpattern.test(userMail)) {
-    signinResponse('void')
-    console.error('testing mail');
+    signupResponse('void')
+    console.error('invalid email format');
   } else {
     authUser.push(newUser);
-    signinResponse(true);
+    signupResponse(true);
     console.log(`success: new user added`);
     clearInput(); 
   }  
 }
 
-function authenticate() {   
+function login() {   
   const userMail = document.querySelector('.loginEmail').value;
   const userPassword = document.querySelector('.loginPassword').value;
 
@@ -45,6 +45,8 @@ function authenticate() {
       userstatus = true;
       loginResponse(userstatus);
       break;
+    } if (userMail === authUser[1].mail && userPassword === authUser[1].password) {
+      window.location.href = 'render.html';
     } else {
     loginResponse('void');
     }
@@ -55,26 +57,26 @@ function authenticate() {
 function clearInput() {
   document.querySelector('.loginEmail').value = '';
   document.querySelector('.loginPassword').value = '';
-  document.querySelector('.signinEmail').value = '';
-  document.querySelector('.signinPassword').value = '';
+  document.querySelector('.signupEmail').value = '';
+  document.querySelector('.signupPassword').value = '';
 }
 
-function signinResponse(param) {
-  let signin = document.querySelector('.result2');
-  let login = document.querySelector('.result1');
+function signupResponse(param) {
+  const signup = document.querySelector('.result2');
+  const login = document.querySelector('.result1');
   if (param == false) {
-    signin.innerHTML = `<p style="color: red;"> all field required </p>`; 
+    signup.innerHTML = `<p style="color: red;"> all field required </p>`; 
   } else if (param == 'void') {
-    signin.innerHTML = `<p style="color: grey;"> invalid email format </p>`; 
+    signup.innerHTML = `<p style="color: grey;"> invalid email format </p>`; 
   } else {
-    signin.innerHTML = `<p style="color: green;"> User Created Successfully </p>`; 
+    signup.innerHTML = `<p style="color: green;"> User Created Successfully </p>`; 
   }    
   login.innerHTML = ` `;
 }
 
 function loginResponse(param) {
-  let signin = document.querySelector('.result2');
-  let login = document.querySelector('.result1');
+  const signup = document.querySelector('.result2');
+  const login = document.querySelector('.result1');
   if (param == 'void') { 
   login.innerHTML = `<p style="color: blue">Incorrect input {check console}</p>`;
   } else if (param == false) {
@@ -82,5 +84,5 @@ function loginResponse(param) {
   } else{
     login.innerHTML = `<p style="color: green">User logged in successful</p>`;
   }
-  signin.innerHTML = ` `;
+  signup.innerHTML = ` `;
 }
