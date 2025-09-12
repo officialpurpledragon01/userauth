@@ -9,7 +9,6 @@ body {
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
-    min-height: 100vh;
 
     background-color: bisque;
     font-family: Roboto, Tahoma, Arial, Calibri;
