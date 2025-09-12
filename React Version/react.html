@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="reactjs-container"></div>
+
+    <script src="exscript.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      
+      function Title () {
+        return ( 
+          <div className="header">
+            User Auth Dashboard 
+          </div>
+        )
+      }
+
+      function InputForm(props) {
+        // console.log(props);
+        const {formType, btnName, mailName, passName} = props;
+        // const button = <button> {props.formType} </button>   
+        return (
+        <div className="form">
+          <input type="email" placeholder="input your email here" className={mailName}/>
+          <input type="password" placeholder="input your password here" className={passName} />
+          {formType === "signup" ? <button onClick={signup}> {btnName} </button> : <button onClick={login}> {btnName} </button>}
+        </div>
+        );
+      } 
+
+      function Container() {
+        return  (
+          <div className="container"> 
+            <div className="signup box">
+              <h2> Create Account </h2>
+              <InputForm 
+                formType="signup" 
+                btnName="SIGN UP"
+                mailName="signupEmail" 
+                passName="signupPassword"
+              />
+              <span className="result2" id="jsResponse" />
+            </div>
+
+            <div className="login box">
+              <h2>Sign In</h2>
+              <InputForm 
+                formType="signin" 
+                btnName="SIGN IN" 
+                mailName="loginEmail" 
+                passName="loginPassword" 
+              />
+              <span className="result1" id="jsResponse" />
+            </div>
+          </div>
+        );
+      } 
+
+      function Footer() {
+        return (
+          <div className="footer-container"> 
+            <footer>This is the React Version </footer>
+          </div>
+      );
+      } 
+      
+      function AuthDashbord() {
+        return (
+          <>
+            <Title />
+            <Container />
+            <Footer />
+          </>
+        ); 
+      }
+
+      const app = document.querySelector('.reactjs-container');
+      ReactDOM.createRoot(app).render(<AuthDashbord />);
+    </script>
+  </body>
+</html>

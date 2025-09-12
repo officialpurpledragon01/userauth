@@ -3,7 +3,6 @@ const authUser = [
   {mail: 'admin@gmail.com', password: 'admin'}
 ]
 
-// still working on the signin
 function signup() {
   const userMail = document.querySelector('.signupEmail').value.trim();
   const userPassword = document.querySelector('.signupPassword').value.trim();
@@ -45,8 +44,8 @@ function login() {
       userstatus = true;
       loginResponse(userstatus);
       break;
-    } if (userMail === authUser[1].mail && userPassword === authUser[1].password) {
-      window.location.href = '../React Version/react.html';
+    } if (userMail === authUser[2].mail && userPassword === authUser[2].password) {
+      window.location.href = '../Main Version/index.html';
     } else {
     loginResponse('void');
     }
