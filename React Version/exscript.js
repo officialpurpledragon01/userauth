@@ -45,7 +45,7 @@ function login() {
       loginResponse(userstatus);
       break;
     } if (userMail === authUser[2].mail && userPassword === authUser[2].password) {
-      window.location.href = '../Main Version/index.html';
+      window.location.href = '../index.html';
     } else {
     loginResponse('void');
     }

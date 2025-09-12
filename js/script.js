@@ -46,7 +46,7 @@ function login() {
       loginResponse(userstatus);
       break;
     } if (userMail === authUser[1].mail && userPassword === authUser[1].password) {
-      window.location.href = '../React Version/react.html';
+      window.location.href = 'React Version/react.html';
     } else {
     loginResponse('void');
     }
