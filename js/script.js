@@ -1,7 +1,9 @@
-const authUser = [
-  {mail: 'test@gmail.com', password: 'test'},
-  {mail: 'admin@gmail.com', password: 'admin'}
-]
+let authUser = JSON.parse(localStorage.getItem('authUser')) || [];
+
+if (!authUser) {
+  let testUser = {mail: 'test@gmail.com', password: 'test'};
+  authUser.push(testUser);
+}
 
 // still working on the signin
 function signup() {
@@ -19,6 +21,7 @@ function signup() {
     console.error('invalid email format');
   } else {
     authUser.push(newUser);
+    localStorage.setItem('authUser', JSON.stringify(authUser));
     signupResponse(true);
     console.log(`success: new user added`);
     clearInput(); 
@@ -45,7 +48,8 @@ function login() {
       userstatus = true;
       loginResponse(userstatus);
       break;
-    } if (userMail === authUser[1].mail && userPassword === authUser[1].password) {
+    } if (userMail === 'admin@gmail.com' && userPassword === 'admin') {
+      loginResponse(userstatus);
       window.location.href = 'React Version/react.html';
     } else {
     loginResponse('void');

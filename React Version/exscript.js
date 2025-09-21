@@ -1,7 +1,10 @@
-const authUser = [
-  {mail: 'test@gmail.com', password: 'test'},
-  {mail: 'admin@gmail.com', password: 'admin'}
-]
+// const authUser = [
+//   {mail: 'test@gmail.com', password: 'test'},
+//   {mail: 'admin@gmail.com', password: 'admin'}
+// ]
+// localStorage.setItem('authUser', JSON.stringify(authUser));
+
+let authUser = JSON.parse(localStorage.getItem("authUser"));
 
 function signup() {
   const userMail = document.querySelector('.signupEmail').value.trim();
@@ -18,6 +21,7 @@ function signup() {
     console.error('invalid email format');
   } else {
     authUser.push(newUser);
+    localStorage.setItem('authUser', JSON.stringify(authUser));
     signupResponse(true);
     console.log(`success: new user added`);
     clearInput(); 
@@ -44,7 +48,7 @@ function login() {
       userstatus = true;
       loginResponse(userstatus);
       break;
-    } if (userMail === authUser[2].mail && userPassword === authUser[2].password) {
+    } if (userMail === 'admin@gmail.com' && userPassword === 'admin') {
       window.location.href = '../index.html';
     } else {
     loginResponse('void');
