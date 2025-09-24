@@ -17,7 +17,7 @@ function signup() {
     console.error('all field is required');
     return;
   } if (!mailpattern.test(userMail)) {
-    signupResponse('void')
+    signupResponse('void');
     console.error('invalid email format');
   } else {
     authUser.push(newUser);
@@ -49,7 +49,7 @@ function login() {
       loginResponse(userstatus);
       break;
     } if (userMail === 'admin@gmail.com' && userPassword === 'admin') {
-      loginResponse(userstatus);
+      loginResponse(true);
       window.location.href = 'React Version/react.html';
     } else {
     loginResponse('void');
@@ -71,7 +71,7 @@ function signupResponse(param) {
   if (param == false) {
     signup.innerHTML = `<p style="color: red;"> all field required </p>`; 
   } else if (param == 'void') {
-    signup.innerHTML = `<p style="color: grey;"> invalid email format </p>`; 
+    signup.innerHTML = `<p style="color: purple;"> invalid email format </p>`; 
   } else {
     signup.innerHTML = `<p style="color: green;"> User Created Successfully </p>`; 
   }    
